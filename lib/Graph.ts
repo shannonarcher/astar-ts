@@ -26,9 +26,10 @@ class Graph {
 			}
 		}
 		
-		// connect the nodes in n^2 (TODO optimise)
+		// connect the nodes in O(n)
 		for (var i: number = 0; i < this.nodes.length; i++) {
 			var n = this.nodes[i];
+			
 			// loop in a square adding each node as a connection
 			for (var x: number = -1; x <= 1; x++) {
 				for (var y: number = -1; y <= 1; y++) {
@@ -37,16 +38,8 @@ class Graph {
 					if (n.x+x < 0 || n.x+x >= width || 
 						n.y+y < 0 || n.y+y >= height) continue;
 					
-					var node : GraphNode = null;
-					for (var j = 0; j < this.nodes.length; j++) {
-						if (this.nodes[j].x == (this.nodes[i].x+x) && 
-							this.nodes[j].y == (this.nodes[i].y+y)) {
-							node = this.nodes[j];
-						}
-					}
-					
-					if (node != null)
-						this.nodes[i].connectTo(node);
+					var node : GraphNode = this.nodes[i+width*y+x];		
+					this.nodes[i].connectTo(node);
 				}
 			}			
 		}

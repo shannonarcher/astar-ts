@@ -24,10 +24,10 @@ describe("Graph", function () {
 		
 		it("Creates the right amount of connections", function () {
 			var data = [
-				[1, 0, 0, 0],
-				[3, 2, 2, 0],
-				[0, 2, 2, 0],
-				[0, 0, 0, 0]
+				[1, 2, 3, 5],
+				[2, 2, 3, 5],
+				[3, 3, 4, 4],
+				[5, 5, 4, 1]
 			];
 			
 			var graph = new Graph();
@@ -44,6 +44,12 @@ describe("Graph", function () {
 			for (var i = 0; i < connections.length; i++) {
 				expect(nodes[i].getConnections().length).to.equal(connections[i]);
 			}
+			
+			for (var i = 0; i < nodes[0].getConnections().length; i++)
+				expect(nodes[0].getConnections()[i].weight).to.equal(2);
+				
+			for (var i = 0; i < nodes[15].getConnections().length; i++)
+				expect(nodes[15].getConnections()[i].weight).to.equal(4); 
 		});
 	});
 	
