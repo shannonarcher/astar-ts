@@ -3,9 +3,18 @@ var Graph = (function () {
     function Graph() {
         this.nodes = [];
     }
+    Graph.prototype.getNode = function (x, y) {
+        for (var i = 0; i < this.nodes.length; i++) {
+            var n = this.nodes[i];
+            if (n.x == x && n.y == y)
+                return n;
+        }
+        return null;
+    };
     Graph.prototype.getNodes = function () { return this.nodes; };
     /**
      * convert a 2d array to a graph
+     * @param data The 2d array containing weights of each tile
      */
     Graph.prototype.fromArray = function (data) {
         this.nodes = [];

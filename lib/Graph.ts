@@ -2,6 +2,14 @@
 class Graph {
 	
 	private nodes : GraphNode[];
+	getNode(x: number, y: number) { 
+		for (var i = 0; i < this.nodes.length; i++) {
+			var n = this.nodes[i];
+			if (n.x == x && n.y == y)
+				return n;
+		}
+		return null;
+	}
 	getNodes() { return this.nodes; }
 		
     constructor() {
@@ -10,6 +18,7 @@ class Graph {
 	
 	/**
 	 * convert a 2d array to a graph
+	 * @param data The 2d array containing weights of each tile
 	 */
 	fromArray(data : number[][]) {
 		this.nodes = [];

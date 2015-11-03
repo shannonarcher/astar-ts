@@ -1,4 +1,3 @@
-
 var fs = require('fs');
 eval(fs.readFileSync('build/astar-ts.min.js')+'');
 
@@ -7,6 +6,7 @@ var expect = require("chai").expect;
 describe("Graph", function () {
 	
 	describe("From Array to Graph", function () {
+		
 		it("Creates the right amount of nodes", function() {
 			var data = [
 				[0, 0, 0, 0],
@@ -51,6 +51,7 @@ describe("Graph", function () {
 			for (var i = 0; i < nodes[15].getConnections().length; i++)
 				expect(nodes[15].getConnections()[i].weight).to.equal(4); 
 		});
+		
 	});
 	
 }); 

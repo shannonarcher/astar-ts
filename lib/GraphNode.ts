@@ -11,6 +11,10 @@ class GraphNode {
 		this.connections = [];
 	}
 	
+	/**
+	 * Connect this node to another in the parent graph
+	 * @param b The graphnode to connect
+	 */
 	connectTo(b : GraphNode) {
 		this.connections.push(b);
 	}
