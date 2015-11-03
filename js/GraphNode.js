@@ -4,8 +4,11 @@ var GraphNode = (function () {
         this.y = y;
         this.z = z;
         this.weight = weight;
+        this.connections = [];
     }
+    GraphNode.prototype.getConnections = function () { return this.connections; };
     GraphNode.prototype.connectTo = function (b) {
+        this.connections.push(b);
     };
     return GraphNode;
 })();

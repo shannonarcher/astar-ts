@@ -4,6 +4,9 @@ var AStar = (function () {
     }
     AStar.prototype.path = function (a, b) {
     };
+    AStar.prototype.load = function (data) {
+        this.graph.fromArray(data);
+    };
     return AStar;
 })();
 //# sourceMappingURL=AStar.js.map

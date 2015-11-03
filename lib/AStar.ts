@@ -10,4 +10,8 @@ class AStar
 	path(a: GraphNode, b: GraphNode) {
 		
 	}
+	
+	load(data: number[][]) {
+		this.graph.fromArray(data);
+	}
 }
