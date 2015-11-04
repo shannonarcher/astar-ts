@@ -15,8 +15,9 @@ class AStar
 	 * @param b Destination
 	 */
 	path(a: GraphNode, b: GraphNode) : GraphNode[] {
-		var path = [];
-		var open = [], closed = [];
+		var path = new Array<GraphNode>();
+		var open = new Array<GraphNode>(), 
+			closed = new Array<GraphNode>();
 		
 		var conn = a.getConnections();
 		for (var c in conn) {
