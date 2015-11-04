@@ -12,6 +12,11 @@ var AStar = (function () {
      */
     AStar.prototype.path = function (a, b) {
         var path = [];
+        var open = [], closed = [];
+        var conn = a.getConnections();
+        for (var c in conn) {
+            var connection = conn[c];
+        }
         return path;
     };
     /**
