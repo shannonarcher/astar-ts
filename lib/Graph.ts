@@ -2,7 +2,7 @@
 class Graph {
 	
 	private nodes : GraphNode[];
-	getNode(x: number, y: number) { 
+	getNode(x: number, y: number) : GraphNode { 
 		for (var i = 0; i < this.nodes.length; i++) {
 			var n = this.nodes[i];
 			if (n.x == x && n.y == y)
@@ -10,7 +10,7 @@ class Graph {
 		}
 		return null;
 	}
-	getNodes() { return this.nodes; }
+	getNodes() : GraphNode[] { return this.nodes; }
 		
     constructor() {
 		this.nodes = [];

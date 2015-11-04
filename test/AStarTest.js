@@ -16,7 +16,7 @@ describe("AStar", function () {
 				[0, 0, 0, 0]
 			];
 			
-			var astar = new AStar();
+			var astar = new AStar(new ManhattenHeuristic());
 			astar.load(data);
 			
 			var g = astar.getGraph();

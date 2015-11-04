@@ -1,10 +1,11 @@
 /// <reference path="Graph.ts" />
+/// <reference path="Heuristics/Heuristic.ts" />
 class AStar 
 {
 	private graph : Graph;
 	getGraph() { return this.graph; }
 	
-	constructor() {
+	constructor(heuristic: Heuristic) {
 		this.graph = new Graph();
 	}	
 	
@@ -13,7 +14,7 @@ class AStar
 	 * @param a Origin
 	 * @param b Destination
 	 */
-	path(a: GraphNode, b: GraphNode) {
+	path(a: GraphNode, b: GraphNode) : GraphNode[] {
 		var path = [];
 		
 		return path;
