@@ -15,17 +15,34 @@ class AStar
 	 * @param b Destination
 	 */
 	path(a: GraphNode, b: GraphNode) : GraphNode[] {
-		var path = new Array<GraphNode>();
-		var open = new Array<GraphNode>(), 
-			closed = new Array<GraphNode>();
-		
-		var conn = a.getConnections();
-		for (var c in conn) {
-			var connection = conn[c];
+		var open = new Array<PathNode>(), 
+			closed = new Array<PathNode>();
+					
+		var next: PathNode = new PathNode(0, 0, null, a);		
+		// find lowest
+		var lowest: PathNode = null;
+		var lowestIndex: number = -1;
+		for (var i: number = 0; i < open.length; i++) 
+		{
+			if (lowest == null || lowest.f() < open[i].f()) {
+				lowest = open[0];
+				lowestIndex = i;
+			}
 		}
 		
+		// add to closed
+		if (lowest != null) {
+			open[open.length-1] = open[lowestIndex];
+			open.splice(open.length-1);
+			closed.push(lowest);
+			
+			next = lowest;
+		}
+		
+		// for all next, add to open
 		
 		
+		var path = new Array<GraphNode>();
 		return path;
 	}
 	
