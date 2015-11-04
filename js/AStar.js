@@ -1,6 +1,7 @@
 /// <reference path="Graph.ts" />
+/// <reference path="Heuristics/Heuristic.ts" />
 var AStar = (function () {
-    function AStar() {
+    function AStar(heuristic) {
         this.graph = new Graph();
     }
     AStar.prototype.getGraph = function () { return this.graph; };
