@@ -1,5 +1,5 @@
 var fs = require('fs');
-eval(fs.readFileSync('build/astar-ts.min.js')+'');
+eval(fs.readFileSync('build/astar.min.js')+'');
 
 var expect = require("chai").expect;
 
@@ -21,8 +21,7 @@ describe("AStar", function () {
 			
 			var g = astar.getGraph();
 			var path = astar.path(g.getNode(0,0), g.getNode(3,3));
-						
-			console.log(path);
+			
 			expect(path.length).to.be.above(0);
 		});
 		

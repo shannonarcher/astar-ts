@@ -1,5 +1,5 @@
 var fs = require('fs');
-eval(fs.readFileSync('build/astar-ts.min.js')+'');
+eval(fs.readFileSync('build/astar.min.js')+'');
 
 var expect = require("chai").expect;
 

@@ -8,8 +8,8 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
-        src: 'js/**/*.js',
-        dest: 'build/astar-ts.min.js'
+        src: 'build/astar.js',
+        dest: 'build/astar.min.js'
       }
     },
 	typescript: {
@@ -25,18 +25,33 @@ module.exports = function(grunt) {
 			}
 		}
 	},
+  concat: {
+    options: {
+      seperator: ';',
+    },
+    dist: {
+      src: [
+        'js/heuristics/Heuristic.js',
+        'js/heuristics/ManhattenHeuristic.js',
+        'js/heuristics/EuclideanHeuristic.js',
+        'js/*.js'
+      ],
+      dest: 'build/astar.js'
+    }
+  },
   watch: {
     files: 'lib/**/*.ts',
-    tasks: ['typescript', 'uglify']
+    tasks: ['typescript', 'concat', 'uglify']
   }
   });
 
   // Load the plugins
   grunt.loadNpmTasks('grunt-typescript');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
-  grunt.registerTask('default', ['typescript', 'uglify', 'watch']);
+  grunt.registerTask('default', ['typescript', 'concat', 'uglify', 'watch']);
 
 };
