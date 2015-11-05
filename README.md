@@ -32,7 +32,7 @@ A total of three heuristics are provided which will affect how a path is found. 
 Each of these Heuristics can be set when instantiating the AStar class.
 
 ```Javascript
-var astar = new AStar(new ManhattenHeuristic());
-var astar = new AStar(new EuclideanHeuristic());
-var astar = new AStar(new DijkstrasHeuristic());
+var manhatten = new AStar(new ManhattenHeuristic());
+var euclidean = new AStar(new EuclideanHeuristic());
+var dijkstras = new AStar(new DijkstrasHeuristic());
 ```
