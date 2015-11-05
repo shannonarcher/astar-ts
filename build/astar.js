@@ -81,11 +81,33 @@ var AStar = (function () {
     };
     return AStar;
 })();
+/// <reference path="GraphNode.ts" />
+var PathNode = (function () {
+    function PathNode(g, h, previous, data) {
+        this.g = g;
+        this.h = h;
+        this.previous = previous;
+        this.data = data;
+    }
+    PathNode.prototype.f = function () { return this.g + this.h; };
+    return PathNode;
+})();
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+/// <reference path="Heuristic.ts" />
+var DijkstrasHeuristic = (function (_super) {
+    __extends(DijkstrasHeuristic, _super);
+    function DijkstrasHeuristic() {
+        _super.call(this);
+    }
+    DijkstrasHeuristic.prototype.getValue = function (x1, y1, z1, x2, y2, z2) {
+        return 0;
+    };
+    return DijkstrasHeuristic;
+})(Heuristic);
 /// <reference path="Heuristic.ts" />
 var EuclideanHeuristic = (function (_super) {
     __extends(EuclideanHeuristic, _super);
