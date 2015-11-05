@@ -36,3 +36,10 @@ var manhatten = new AStar(new ManhattenHeuristic());
 var euclidean = new AStar(new EuclideanHeuristic());
 var dijkstras = new AStar(new DijkstrasHeuristic());
 ```
+
+##Running tests
+To run the tests including with this run the following two commands from the directory containing package.json:
+```
+> npm install
+> npm test
+```
