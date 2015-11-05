@@ -1,4 +1,6 @@
 #A* Pathfinding in TypeScript
+A simple application aimed at familiarising myself with the gulp and typescript workflow.
+
 [From Wikipedia](https://en.wikipedia.org/wiki/A*_search_algorithm)
 
 In computer science, A* is a computer algorithm that is widely used in pathfinding and graph traversal, 
