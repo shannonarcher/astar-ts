@@ -4,12 +4,14 @@ class AStar
 {
 	private graph : Graph;
 	getGraph() { return this.graph; }
-	
+	getNode(x : number, y : number) { return this.graph.getNode(x, y); }
+		
 	private heuristic : Heuristic;
+	setHeuristic(heuristic : Heuristic) { this.heuristic = heuristic; }
 	
 	constructor(heuristic: Heuristic) {
 		this.graph = new Graph();
-		this.heuristic = heuristic;
+		this.setHeuristic(heuristic);
 	}	
 	
 	/**
@@ -25,7 +27,7 @@ class AStar
 			0, this.heuristic.getHeuristic(a.x, a.y, a.z, b.x, b.y, b.z), null, a);
 		
 		// find lowest
-		for (var k = 0; k < 100 && next.data != b; k++)
+		while (next.data != b)
 		{
 			var lowest: PathNode = null;
 			var lowestIndex: number = -1;

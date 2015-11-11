@@ -19,8 +19,8 @@ var data = [
 var astar = new AStar(new ManhattenHeuristic());
 astar.load(data);
 
-var nodeA = astar.getGraph().getNode(0, 0),
-	nodeB = astar.getGraph().getNode(3, 3);
+var nodeA = astar.getNode(0, 0),
+	nodeB = astar.getNode(3, 3);
 astar.path(nodeA, nodeB); 
 // returns path (0,0), (0,1), (0,2), (1,3), (2,3), (3,3)
 ```
@@ -35,6 +35,9 @@ Each of these Heuristics can be set when instantiating the AStar class.
 var manhatten = new AStar(new ManhattenHeuristic());
 var euclidean = new AStar(new EuclideanHeuristic());
 var dijkstras = new AStar(new DijkstrasHeuristic());
+
+// or use the setHeuristic method
+manhatten.setHeuristic(new DijkstrasHeuristic()); // not a well named variable anymore
 ```
 
 ##Running tests
