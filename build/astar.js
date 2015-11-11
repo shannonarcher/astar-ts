@@ -65,13 +65,15 @@ var Heuristic = (function () {
 var AStar = (function () {
     function AStar(heuristic) {
         this.graph = new Graph();
-        this.heuristic = heuristic;
+        this.setHeuristic(heuristic);
     }
     AStar.prototype.getGraph = function () { return this.graph; };
+    AStar.prototype.getNode = function (x, y) { return this.graph.getNode(x, y); };
+    AStar.prototype.setHeuristic = function (heuristic) { this.heuristic = heuristic; };
     AStar.prototype.path = function (a, b) {
         var open = new Array(), closed = new Array();
         var next = new PathNode(0, this.heuristic.getHeuristic(a.x, a.y, a.z, b.x, b.y, b.z), null, a);
-        for (var k = 0; k < 100 && next.data != b; k++) {
+        while (next.data != b) {
             var lowest = null;
             var lowestIndex = -1;
             for (var i = 0; i < open.length; i++) {
